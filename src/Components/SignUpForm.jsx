@@ -43,7 +43,7 @@ function SignUpForm() {
             value={formData.Name}
             onChange={handleChange}
           />
-          <hr />
+          <hr className='line'/>
         </label>
         <br />
         <label>
@@ -55,7 +55,7 @@ function SignUpForm() {
             value={formData.LastName}
             onChange={handleChange}
           />
-          <hr />
+          <hr className='line'/>
         </label>
         <br />
         <label>
@@ -67,7 +67,7 @@ function SignUpForm() {
             value={formData.username}
             onChange={handleChange}
           />
-          <hr />
+          <hr className='line'/>
         </label>
         <br />
         <label>
@@ -79,10 +79,11 @@ function SignUpForm() {
             value={formData.email}
             onChange={handleChange}
           />
-          <hr />
+          <hr className='line' />
         </label>
         <br />
-        <label className='pass' >
+      
+       <label className='pass' >
           <input
             placeholder='password'
             className='input'
@@ -92,11 +93,12 @@ function SignUpForm() {
             onChange={handleChange}
           />
           <AiOutlineEye
+          className='eye'
             onClick={togglePasswordVisibility}
             type={showPassword ? "text" : "password"}
           />
-          <hr />
         </label>
+        <hr className='line'/>
         <br />
         <button type="submit" className='signbttn' >Sign Up</button>
       </form>

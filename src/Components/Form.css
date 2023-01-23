@@ -4,18 +4,19 @@
     box-sizing: border-box;
 }
 .main{
-    width: 35%;
+    width: 30%;
     height: 550px;
     background: white; 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-radius: 10px;
 }
 .formData{
-    width:35%;
+    width:55%;
     height: 500px;
-    background: white;
+    /* background:green; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,13 +27,27 @@
     border: none;
     outline: none;
     height: 50px;
+    width: 100%;
     background-color: transparent;
+    /* background-color: blue; */
+}
+.pass{
+    display: flex;
+    align-items: center;
+    gap: 140px;
+    margin-left: -25px;
 }
 .signbttn{
-    width: 100%;
+    width: 300px;
     height: 40px;
     border: none;
     outline: none;
     border-radius: 10px;
     background-color: yellow;
+}
+.line{
+    width: 300px;
+}
+.eye{
+    width: 30px;
 }
