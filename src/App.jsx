@@ -1,53 +1,80 @@
-// import { useState } from 'react'
+import { useState } from 'react'
+import SignUp from './Components/SignUp'
 import './App.css'
-// import FormInput from './Components/FormInput'
-import SignUpForm from './Components/SignUpForm'
 function App() {
-  // const [value, setValue] = useState({
-  //   username: '',
-  //   email: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // })
-  // const Input =[
-  //   {
-  //     id: 1,
-  //     placeholder: "User Name",
-  //     type: "text",
-  //     name: "username",
-  //   },
-  //   {
-  //     id: 2,
-  //     placeholder: "email",
-  //     type: "text",
-  //     name: "email",
-  //   },
-  //   {
-  //     id: 3,
-  //     placeholder: "password",
-  //     type: "password",
-  //     name: "password",
-  //   },
-  //   {
-  //     id: 4,
-  //     placeholder: "confirm Password",
-  //     type: "password",
-  //     name: "confirm password",
-  //   }
-  // ]
-
-  // const onChannge=()=>{
-  //   setValue({...value, [e.tartget.name]: e.target.value})
-  // }
-
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    address:"",
+    password: "",
+    confirmPassword: "",
+  })
+ 
+  const field = [
+    {
+      id: 1,
+      name: "Name",
+      type: "text",
+      label: "name",
+      required: true,
+      admin: "false",
+      errMsg: "must be atleast three letter, number and special character not included",
+      pattern: `[a-zA-Z][a-zA-Z0-9-_. ]{3,20}`
+    },
+    {
+      id: 2,
+      name: "address",
+      type: "text",
+      label: "address",
+    },
+    {
+      id: 3,
+      name: "email",
+      type: "email",
+      label: "email",
+      required: true,
+      errMsg: "email has to be valid",
+    },
+    {
+      id: 4,
+      name: "password",
+      type: "password",
+      label: "password",
+      required: true,
+      errMsg: `At least 8 characters, min 1 Uppercase 1 Lowercase 1 Number 1 special character`,
+      pattern: `^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$`
+    },
+    {
+      id: 5,
+      name: "confirmPassword",
+      type: "password",
+      label: "confirmPassword",
+      pattern: data.password,
+      required: true,
+      errMsg: "must match with the password"
+    },
+  ];
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(data)
+  };
+  const handleChange = event => {
+    setData(
+      {
+        ...data, [event.target.name]: event.target.value
+      }
+    );
+  };
   return (
-    <main className="App">
-     {/* {
-      Input.map((i)=>(
-        <FormInput key={i.id}   />
-      ))
-     } */}
-     <SignUpForm/>
+    <main className="main">
+      <form onSubmit={handleSubmit} className="formData" >
+        <h2>Register Here</h2>
+        {field.map((field) => (
+          <SignUp key={field.id} {...field} handleChange={handleChange} data={data[field.name]}/>
+        ))}
+         <input type="checkbox" onChange={() => setData ({...data, admin: true})} />
+        <button type="submit" className='signbttn' >sign up</button>
+      </form>
     </main>
   )
 }
