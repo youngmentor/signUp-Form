@@ -20,7 +20,6 @@ const SignUp = (props,{handleChange}) => {
                  onChange={handleChange}
                  required={props.required}
                  pattern={props.pattern}
-                //  placeholder={props.placeholder}
                  onFocus={()=> props.name === "confirmPassword" && setFocus(true)}
                  focus={focus.toString()}
                  onBlur={whenFocus}
