@@ -2,8 +2,11 @@ import React, {useState} from 'react'
 import SignUp from './Components/SignUp'
 import './App.css'
 import { useNavigate } from 'react-router-dom'
+import { AiOutlineEye } from 'react-icons/ai';
+import {RiEyeCloseLine} from 'react-icons/ri';
 const Form = () => {
   const navigate = useNavigate()
+   const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -68,10 +71,18 @@ const Form = () => {
   };
   return (
      <main className="main">
-    <form onSubmit={handleSubmit} className="formData" >
+       <form onSubmit={handleSubmit} className="formData" >
       <h2>Register Here</h2>
       {field.map((field) => (
-        <SignUp key={field.id} {...field} handleChange={handleChange} data={data[field.name]}/>
+       <div>
+         <SignUp key={field.id} {...field} handleChange={handleChange} data={data[field.name]}type={field.name === 'password' && !showPassword ? 'password' : 'text'}  />
+
+         {field.name === 'password' && (
+            <div onClick={() => setShowPassword(!showPassword)} className="eye" >
+            {showPassword ? <RiEyeCloseLine/> :<AiOutlineEye/>  }
+          </div>
+          )}
+       </div>
       ))}
        {/* <input type="checkbox" onChange={() => setData ({...data, admin: true})} /> */}
        <h3>forgot Password </h3>
