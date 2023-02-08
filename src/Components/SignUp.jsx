@@ -9,12 +9,13 @@ const SignUp = (props,{handleChange}) => {
     setFocus(true)
   }
   return (
-   <div  className='app'>
-     <div className='formwrap'>
-            <label className='label'>
+   <div>
+     <div>
+            <label >
              <h3> {props.name}</h3>
               <input  
-                 className="input"
+                 className='label input'
+                //  className="input"
                  type={props.type}
                  name={props.name}
                  onChange={handleChange}

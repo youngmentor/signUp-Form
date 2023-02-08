@@ -75,13 +75,9 @@ const Form = () => {
       <h2>Register Here</h2>
       {field.map((field) => (
        <div>
+        
          <SignUp key={field.id} {...field} handleChange={handleChange} data={data[field.name]}type={field.name === 'password' && !showPassword ? 'password' : 'text'}  />
-
-         {field.name === 'password' && (
-            <div onClick={() => setShowPassword(!showPassword)} className="eye" >
-            {showPassword ? <RiEyeCloseLine/> :<AiOutlineEye/>  }
-          </div>
-          )}
+         {field.name === 'password' && (showPassword ? <RiEyeCloseLine className='eye'  onClick={() => setShowPassword(!showPassword)}/> :<AiOutlineEye className='eye'  onClick={() => setShowPassword(!showPassword)}/>  )}
        </div>
       ))}
        {/* <input type="checkbox" onChange={() => setData ({...data, admin: true})} /> */}

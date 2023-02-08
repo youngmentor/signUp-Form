@@ -106,9 +106,6 @@
     justify-content: center;
 }
 .eye{
-    display: flex;
-    justify-content: flex-end;
-    position: sticky;
     position: relative;
     top: -30%;
     left: -2%;
